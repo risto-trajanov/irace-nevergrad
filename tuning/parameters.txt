@@ -1,6 +1,6 @@
 scale "--scale=" r (0.001, 1)
 popsize "--popsize=" i (2,10)
-elitist "--elitist=" c ("False")
+elitist "--elitist=" c ("True", "False")
 diagonal "--diagonal=" c ("True", "False")
 fcmaes "--fcmaes=" c ("True", "False") | diagonal == "True"
 random_init "--random_init=" c ("True", "False")
