@@ -89,7 +89,7 @@ def get_function(name:str = None,
     # ]
 
 # TODO: popsize coresponding with num_workers
-
+# TODO: Fix SEED
 def get_optimizer(name:str = None, cand_params:list = None) -> ConfiguredOptimizer:
     """Create optimizer for a given name
 

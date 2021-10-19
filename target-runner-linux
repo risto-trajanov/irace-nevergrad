@@ -1,0 +1,2 @@
+CONFIG_PARAMS=$*
+python target-runner.py ${CONFIG_PARAMS}

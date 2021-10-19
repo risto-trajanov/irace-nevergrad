@@ -1,4 +1,6 @@
-maxExperiments = 500
+maxExperiments = 10000
 trainInstancesDir = ""
 trainInstancesFile = "instances.txt"
 targetRunner = "target-runner-win.bat"
+testType = "t-test"
+configurationFile = "default.txt"

@@ -1,6 +1,6 @@
 scale "--scale=" r (0.001, 1)
-popsize "--popsize=" i (2,10)
-elitist "--elitist=" c ("False")
+popsize_factor "--popsize=" i (5,15) # 4 + int({popsize_factor} * np.log(self.dimension))
+elitist "--elitist=" c ("False", "True")
 diagonal "--diagonal=" c ("True", "False")
 fcmaes "--fcmaes=" c ("True", "False") | diagonal == "True"
 random_init "--random_init=" c ("True", "False")

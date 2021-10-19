@@ -1,0 +1,3 @@
+scale popsize elitist diagonal fcmaes random_init
+1 3 False False False False
+1 3 False True True False
