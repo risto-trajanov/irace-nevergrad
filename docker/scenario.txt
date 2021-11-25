@@ -1,0 +1,7 @@
+maxExperiments = 10000
+trainInstancesDir = ""
+trainInstancesFile = "instances_1.txt"
+targetRunner = "target-runner-linux"
+testType = "t-test"
+configurationFile = "default.txt"
+logFile = "./irace.Rdata"
