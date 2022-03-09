@@ -1,0 +1,48 @@
+# WARNING: The maximum budget is controlled by different parameters:
+# For "Nelder-Mead", you have to set maxfev
+# For "L-BFGS-B", you have to set maxfun
+# For "COBYLA", maxiter
+# For "SLSQP", the only option is maxiter but it does not say whether this limits the number of FEs.
+
+method "" c ("SLSQP", "COBYLA", "Nelder-Mead", "L-BFGS-B")
+
+# Final accuracy in the optimization (not precisely guaranteed). This is a lower bound on the size of the trust region. Probably similar to ftol in other algorithms. There is no default in the documentation.
+tol "" c ("1e-06")
+
+# Step size used for numerical approximation of the Jacobian.
+# default is 1.4901161193847656e-08 for SLSQP.
+# Default is 1e-08 for L-BFGS-B.
+eps "" r (7.450580596923828125e-09, 2.98023223876953125e-08) | method %in% c("SLSQP", "L-BFGS-B")
+
+# if jac in [‘2-point’, ‘3-point’, ‘cs’] the relative step size to use for numerical approximation of jac. The absolute step size is computed as h = rel_step * sign(x0) * max(1, abs(x0)), possibly adjusted to fit into the bounds. For method='3-point' the sign of h is ignored. If None (default) then step is selected automatically.
+finite_diff_rel_step "" c ("None") # Let's use the default since this is very problem specific.
+
+# Precision goal for the value of f in the stopping criterion.
+# default is 1e-06 for "SLSQP"
+# default is 2.220446049250313e-09 for L-BFGS-B
+ftol "" c ("1e-06")  | method %in% c("SLSQP", "L-BFGS-B")
+
+# Reasonable initial changes to the variables. Default is 1.0
+rhobeg "" r (0.5, 2) | method == "COBYLA"
+
+
+# Absolute error in func(xopt) between iterations that is acceptable for convergence. Default is 0.0001. Probably similar to ftol and tol in other methods.
+fatol "" r ("1e-06") | method == "Nelder-Mead"
+
+# Adapt algorithm parameters to dimensionality of problem. Useful for high-dimensional minimization. Default: False.
+adaptive "" c ("True", "False") | method == "Nelder-Mead"
+
+# Maximum number of line search steps (per iteration). Default is 20.
+maxls "" i (1, 40) | method == "L-BFGS-B"
+
+# The maximum number of variable metric corrections used to define the limited
+# memory matrix. (The limited memory BFGS method does not store the full
+# hessian but uses this many terms in an approximation to it.). Default is 10.
+maxcor "" i c(5, 20) | method == "L-BFGS-B"
+
+# Method for computing the gradient vector. By default, the gradient will be
+# estimated using 2-point finite difference estimation with an absolute step
+# size. Alternatively, the keywords {‘2-point’, ‘3-point’, ‘cs’} can be used to
+# select a finite difference scheme for numerical estimation of the gradient
+# with a relative step size.
+jac "" c ("2-point", "3-point", "cs") | method %in% c("L-BFGS-B", "SLSQP")

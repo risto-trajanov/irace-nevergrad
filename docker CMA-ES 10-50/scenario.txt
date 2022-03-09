@@ -1,0 +1,10 @@
+maxExperiments = 10000
+trainInstancesDir = ""
+trainInstancesFile = "instances_small_10_50.txt"
+targetRunner = "target-runner-win.bat"
+testType = "t-test"
+logFile = "./irace_cma_small.Rdata"
+parallel = 4
+sampleInstances=0
+firstTest=22*5
+eachTest=22

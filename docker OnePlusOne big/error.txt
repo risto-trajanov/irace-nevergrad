@@ -1,0 +1,38 @@
+This message is generated when optimizing an Artificial Function with parameters:  --name=rastrigin --rotation=False --d=2 --budget=160000
+
+and the CMA-ES parameters are: --scale=9.7976 --popsize_factor=7 --elitist=True --diagonal=False --fcmaes=False --random_init=True
+
+overflow encountered in add
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/optimization/base.py", line 469, in ask
+    candidate = self._internal_ask_candidate()
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/optimization/optimizerlib.py", line 443, in _internal_ask_candidate
+    self._to_be_asked.extend(self.es.ask())
+  File "/usr/local/lib/python3.8/dist-packages/cma/evolution_strategy.py", line 1897, in ask
+    pop_geno = self.ask_geno(number, xmean, sigma_fac)
+  File "/usr/local/lib/python3.8/dist-packages/cma/evolution_strategy.py", line 2178, in ask_geno
+    ary = self.sigma_vec * np.asarray(self.sm.sample(Niid))
+  File "/usr/local/lib/python3.8/dist-packages/cma/sampler.py", line 234, in sample
+    self.update_now(lazy_update_gap)
+  File "/usr/local/lib/python3.8/dist-packages/cma/sampler.py", line 311, in update_now
+    self._decompose_C()
+  File "/usr/local/lib/python3.8/dist-packages/cma/sampler.py", line 365, in _decompose_C
+    assert all(np.isfinite(self.D))
+AssertionError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/target-runner.py", line 328, in <module>
+    exp_wrap.get_experiment()
+  File "/target-runner.py", line 166, in get_experiment
+    experiment._run_with_error()
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/benchmark/xpbase.py", line 274, in _run_with_error
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/benchmark/xpbase.py", line 266, in _run_with_error
+    obase.Optimizer.minimize(
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/optimization/base.py", line 648, in minimize
+    args = self.ask()
+  File "/usr/local/lib/python3.8/dist-packages/nevergrad/optimization/base.py", line 471, in ask
+    assert (
+AssertionError: Error:

@@ -4,3 +4,4 @@ trainInstancesFile = "instances_1.txt"
 targetRunner = "target-runner-win.bat"
 testType = "t-test"
 configurationFile = "default.txt"
+parallel = 1

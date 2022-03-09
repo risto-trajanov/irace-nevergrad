@@ -1,0 +1,5 @@
+solver "--solver=" c ("OnePlusOne")
+noise_handling "--noise_handling=" c ("random", "optimistic") | solver == "OnePlusOne"
+mutation "--mutation=" c ("gaussian", "cauchy", "discrete", "discreteBSO", "fastga", "doublefastga", "portfolio", "lengler") | solver == "OnePlusOne"
+crossover "--crossover=" c ("False", "True") | solver == "OnePlusOne"
+use_pareto "--use_pareto=" c ("False", "True") | solver == "OnePlusOne"

@@ -1,4 +1,4 @@
-solver "--solver=" c ("CMA-ES", "MetaModel", "Chaining")
+solver "--solver=" c ("CMA-ES")
 multivariate_optimizer "--multivariate_optimizer=" c ("CMA","OnePlusOne") | solver == "MetaModel"
 optimizers "--optimizers=" c ("MetaModel_SQP", "CMA_SQP") | solver == "Chaining"
 budget_chaining "--budget_chaining=" c ("half", "third") | solver == "Chaining"

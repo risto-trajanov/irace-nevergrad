@@ -1,0 +1,7 @@
+solver "--solver=" c ("CMA-ES")
+scale "--scale=" r (0.1, 10) | solver == "CMA-ES"
+popsize_factor "--popsize_factor=" i (1,9) | solver == "CMA-ES"
+elitist "--elitist=" c ("False", "True") | solver == "CMA-ES"
+diagonal "--diagonal=" c ("True", "False") | solver == "CMA-ES"
+fcmaes "--fcmaes=" c ("True", "False") | diagonal == "False"
+random_init "--random_init=" c ("True", "False") | solver == "CMA-ES"

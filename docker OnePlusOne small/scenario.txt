@@ -1,0 +1,6 @@
+maxExperiments = 10000
+trainInstancesDir = ""
+trainInstancesFile = "instances_small.txt"
+targetRunner = "target-runner-win.bat"
+testType = "t-test"
+logFile = "./irace_one_small.Rdata"

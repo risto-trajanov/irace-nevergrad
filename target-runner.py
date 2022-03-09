@@ -13,6 +13,7 @@
 # This script should print one numerical value: the cost that must be minimized.
 # Exit with 0 if no error, with 1 in case of error
 ###############################################################################
+print("Program start")
 import datetime
 import os
 import os.path
@@ -23,7 +24,7 @@ from abc import ABC
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')
     sys.stderr = open(os.devnull, "w")
-blockPrint()
+# blockPrint()
 from nevergrad.functions import ArtificialFunction
 from nevergrad.benchmark.xpbase import Experiment
 from nevergrad.benchmark import experiments
@@ -31,6 +32,7 @@ from nevergrad.optimization.base import ConfiguredOptimizer
 from nevergrad.optimization.optimizerlib import *
 from nevergrad.optimization.recastlib import *
 import argparse
+
 
 def enablePrint():
     sys.stdout = sys.__stdout__
@@ -153,8 +155,12 @@ class ExperimentWrapper(ABC):
                     budget_chaining = str(value)
                 else:
                     target_runner_error("unknown parameter %s" % (param))
+                    
+            print("In chaining works")
 
             optimizer = Chaining(optimizers=[optimizer_1, optimizer_2], budgets=[budget_chaining]).set_name("Chaining_my", register=True)
+            
+            print("Optimizer created")
         else:
             return None  
         
@@ -274,6 +280,8 @@ def get_experiment(optimizer:ConfiguredOptimizer, artificial_function:Artificial
 
 if __name__=='__main__':
     
+    
+    
     if len(sys.argv) < 5:
         print("\nUsage: ./target-runner.py <configuration_id> <instance_id> <seed> <instance_path_name> <list of parameters>\n")
         sys.exit(1)
@@ -285,6 +293,8 @@ if __name__=='__main__':
     seed = int(seed)
     benchmark = sys.argv[4]
     cand_params = sys.argv[5:]
+    
+    
 
     # Default values (if any)
     name = None
@@ -320,6 +330,8 @@ if __name__=='__main__':
         'rotation': rotation,
         'd': d
     }
+    
+    print("Works")
 
     exp_wrap = ExperimentWrapper(function_parameters=parameters_function, budget=budget, benchmark=benchmark, optimizer_name=solver, seed=seed)
     # print(exp_wrap.name)
