@@ -18,3 +18,5 @@ of each irace run. By parallelizing each irace run across 4 CPUs, the runtime of
 a single run of irace was around 8 hours.
 
 https://arxiv.org/pdf/2209.04412.pdf
+
+Contribution to Facebook's Nevergrad: https://github.com/facebookresearch/nevergrad/compare/main...ristocma
